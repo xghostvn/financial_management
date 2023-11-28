@@ -17,6 +17,7 @@ RUN apt install nginx -y
 RUN apt install php-curl -y
 RUN apt install php-xml -y
 ADD ./ /var/www
+
 ADD ./nginx.conf /etc/nginx/sites-enabled/default
 EXPOSE 80
 RUN php /usr/local/bin/composer install -d /var/www
