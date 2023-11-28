@@ -7,10 +7,10 @@ file_exists_behavior: OVERWRITE
 hooks:
   BeforeInstall:
     - location: scripts/install.sh
-    - location: scripts/install_dependency.sh
       timeout: 300
       runas: root
   AfterInstall:
+    - location: scripts/install_dependency.sh
     - location: scripts/restart_nginx.sh
       timeout: 300
       runas: root
