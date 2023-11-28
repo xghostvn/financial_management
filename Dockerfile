@@ -19,7 +19,9 @@ RUN apt install php-xml -y
 ADD ./ /var/www
 ADD ./nginx.conf /etc/nginx/sites-enabled/default
 EXPOSE 80
-
+RUN php /usr/local/bin/composer install -d /var/www
+RUN cp /var/www/.env.example /var/www/.env
+RUN php /var/www/ artisan key:generate
 RUN chmod 777  -R /var/www/storage/framework/
 RUN chmod 777  -R /var/www/storage/logs/
 
