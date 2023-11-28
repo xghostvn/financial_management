@@ -14,7 +14,8 @@ RUN HASH=`curl -sS https://composer.github.io/installer.sig`
 RUN php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN apt install nginx -y
-
+RUN apt install php-curl -y
+RUN apt install php-xml -y
 ADD ./ /var/www
 ADD ./nginx.conf /etc/nginx/sites-enabled/default
 EXPOSE 80
