@@ -1,1 +1,1 @@
-This is new page laravel
+This is new page laravel 2
